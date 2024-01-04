@@ -8,4 +8,10 @@ import { Component, Input } from '@angular/core';
 export class DateResultsComponent {
   @Input() selectedDate?: string;
   daysToSelectedDate?: number;
+  dateMessage?: string;
+
+  ngOnInit(): void {
+    this.daysToSelectedDate = 0;
+    this.dateMessage = 'Happy Birthday!'
+  }
 }
