@@ -1,10 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-date-results',
+  selector: 'date-results',
   templateUrl: './date-results.component.html',
   styleUrls: ['./date-results.component.css']
 })
 export class DateResultsComponent {
-
+  @Input() selectedOption?: string;
 }
