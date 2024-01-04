@@ -1,0 +1,12 @@
+<div className="flex">
+  <p>How many days until...</p>
+  <select
+    (change)="onChange($event)"
+    [(ngModel)]="selectedOption"
+  >
+    <option value="matt">Matt</option>
+    <option value="shannon">Shannon</option>
+    <option value="mason">Mason</option>
+    <option value="mackenzie">Mackenzie</option>
+  </select>
+</div>
