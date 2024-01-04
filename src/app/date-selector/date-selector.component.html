@@ -2,12 +2,12 @@
   <p>How many days until...</p>
   <select
     (change)="onChange($event)"
-    [(ngModel)]="selectedOption"
+    [(ngModel)]="selectedDate"
   >
     <option value="matt">Matt</option>
     <option value="shannon">Shannon</option>
     <option value="mason">Mason</option>
     <option value="mackenzie">Mackenzie</option>
   </select>
-  <date-results [selectedOption]="selectedOption"></date-results>
+  <date-results [selectedDate]="selectedDate"></date-results>
 </div>

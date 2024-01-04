@@ -6,5 +6,6 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./date-results.component.css']
 })
 export class DateResultsComponent {
-  @Input() selectedOption?: string;
+  @Input() selectedDate?: string;
+  daysToSelectedDate?: number;
 }

@@ -6,11 +6,11 @@ import { Component } from '@angular/core';
   styleUrls: ['./date-selector.component.css']
 })
 export class DateSelectorComponent {
-  selectedOption: string = '';
+  selectedDate: string = '';
 
   onChange(event: any): void {
     const name = event.target.value;
-    this.selectedOption = name;
+    this.selectedDate = name;
     console.log(name);
   }
 }
