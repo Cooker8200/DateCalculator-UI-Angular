@@ -10,7 +10,7 @@ export class DateResultsComponent {
   daysToSelectedDate?: number;
   dateMessage?: string;
 
-  ngOnInit(): void {
+  ngOnInit (): void {
     this.daysToSelectedDate = 0;
     this.dateMessage = 'Happy Birthday!'
   }

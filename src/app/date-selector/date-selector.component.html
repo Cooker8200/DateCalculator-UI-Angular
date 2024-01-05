@@ -4,10 +4,12 @@
     (change)="onChange($event)"
     [(ngModel)]="selectedDate"
   >
-    <option value="matt">Matt</option>
-    <option value="shannon">Shannon</option>
-    <option value="mason">Mason</option>
-    <option value="mackenzie">Mackenzie</option>
+    <option
+      *ngFor="let date of dates"
+      [value]="date.name"
+    >
+      {{date.name}}
+    </option>
   </select>
   <date-results [selectedDate]="selectedDate"></date-results>
 </div>

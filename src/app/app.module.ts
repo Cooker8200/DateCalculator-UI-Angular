@@ -5,18 +5,13 @@ import { FormsModule } from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app-component/app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeroesComponent } from './heroes/heroes.component';
-import { HeroDetailComponent } from './hero-detail/hero-detail.component';
-import { MessagesComponent } from './messages/messages.component';
 import { DateSelectorComponent } from './date-selector/date-selector.component';
 import { DateResultsComponent } from './date-results/date-results.component';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeroesComponent,
-    HeroDetailComponent,
-    MessagesComponent,
     DateSelectorComponent,
     DateResultsComponent
   ],
@@ -24,7 +19,8 @@ import { DateResultsComponent } from './date-results/date-results.component';
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

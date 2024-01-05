@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { IDate } from 'src/interfaces/IDate';
 
 @Component({
   selector: 'date-selector',
@@ -6,6 +7,7 @@ import { Component } from '@angular/core';
   styleUrls: ['./date-selector.component.css']
 })
 export class DateSelectorComponent {
+  @Input() dates?: IDate[];
   selectedDate: string = '';
 
   onChange(event: any): void {
