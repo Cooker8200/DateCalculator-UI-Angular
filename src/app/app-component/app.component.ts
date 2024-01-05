@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 import { IDate } from 'src/interfaces/IDate';
+import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-root',
@@ -13,11 +14,20 @@ export class AppComponent {
   }
 
   title: string = 'Date Calculator';
-  dates: IDate[] = [];
+  birthdays: IDate[] = [];
+  holidays: IDate[] = [];
+  otherDates: IDate[] = [];
 
   ngOnInit(): void {
     this.dataService.getAllDates().subscribe(resp => {
-      this.dates = JSON.parse(resp.body);
+      const dates: IDate[] = JSON.parse(resp.body);
+      const birthdays = orderBy(dates.filter(date => date.type === 'birthday'), 'name');
+      const holidays = orderBy(dates.filter(date => date.type === 'holiday'), 'name');
+      const otherDates = orderBy(dates.filter(date => date.type === 'other'), 'name');
+
+      this.birthdays = birthdays;
+      this.holidays = holidays;
+      this.otherDates = otherDates;
     })
   }
 }

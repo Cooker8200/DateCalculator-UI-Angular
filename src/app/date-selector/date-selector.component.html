@@ -4,12 +4,30 @@
     (change)="onChange($event)"
     [(ngModel)]="selectedDate"
   >
-    <option
-      *ngFor="let date of dates"
-      [value]="date.name"
-    >
-      {{date.name}}
-    </option>
+    <optgroup label="Birthdays">
+      <option
+        *ngFor="let date of birthdays"
+        [value]="date.name"
+      >
+        {{date.name}}
+      </option>
+    </optgroup>
+    <optgroup label="Holidays">
+      <option
+        *ngFor="let date of holidays"
+        [value]="date.name"
+      >
+        {{date.name}}
+      </option>
+    </optgroup>
+    <optgroup label="Other Dates">
+      <option
+        *ngFor="let date of otherDates"
+        [value]="date.name"
+      >
+        {{date.name}}
+      </option>
+    </optgroup>
   </select>
   <date-results [selectedDate]="selectedDate"></date-results>
 </div>

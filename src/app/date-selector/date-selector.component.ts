@@ -7,7 +7,9 @@ import { IDate } from 'src/interfaces/IDate';
   styleUrls: ['./date-selector.component.css']
 })
 export class DateSelectorComponent {
-  @Input() dates?: IDate[];
+  @Input() birthdays?: IDate[];
+  @Input() holidays?: IDate[];
+  @Input() otherDates?: IDate[];
   selectedDate: string = '';
 
   onChange(event: any): void {
