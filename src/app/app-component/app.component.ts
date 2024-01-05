@@ -16,10 +16,8 @@ export class AppComponent {
   dates: IDate[] = [];
 
   ngOnInit(): void {
-    console.log('should be getting dates?');
     this.dataService.getAllDates().subscribe(resp => {
       this.dates = JSON.parse(resp.body);
-      console.log('resp: ', JSON.parse(resp.body));
     })
   }
 }

@@ -13,6 +13,5 @@ export class DateSelectorComponent {
   onChange(event: any): void {
     const name = event.target.value;
     this.selectedDate = name;
-    console.log(name);
   }
 }

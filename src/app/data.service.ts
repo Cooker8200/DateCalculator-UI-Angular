@@ -14,7 +14,6 @@ export class DataService {
   dates: any[] = [];
 
   getAllDates(): Observable<any> {
-    console.log('getting data');
     return this.http.get(datesUrl);
   }
 }
