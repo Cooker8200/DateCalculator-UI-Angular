@@ -12,8 +12,9 @@ export class DateResultsComponent {
   dateMessage?: string;
 
   ngOnChanges(): void {
-    this.daysToSelectedDate = this.calculateDayDifference(this.selectedDate as IDate);
-    this.dateMessage = 'Happy Birthday!'
+    const days = this.calculateDayDifference(this.selectedDate as IDate);
+    this.daysToSelectedDate = days
+    this.dateMessage = this.renderDateMessage(days);
   }
 
   calculateDayDifference = (dateObject: IDate): number => {
@@ -33,6 +34,20 @@ export class DateResultsComponent {
     } else {
       // day is today
       return 0;
+    }
+  }
+
+  renderDateMessage(days: number): string {
+    if (days === 0) {
+      return this.selectedDate?.type === 'birthday' ?
+        `It is ${this.selectedDate.name}'s birthday!  HAPPY BIRTHDAY!!!`
+        :
+        `It is ${this.selectedDate?.name}!  Let's Celebrate!!!`
+    } else {
+      return this.selectedDate?.type === 'birthday' ?
+      `${this.selectedDate.name} has ${days} days until their birthday on ${this.selectedDate.date.substring(0, this.selectedDate.date.lastIndexOf(' '))}!`
+      :
+      `${this.selectedDate?.name} is ${days} days away on ${this.selectedDate?.date}!`
     }
   }
 
