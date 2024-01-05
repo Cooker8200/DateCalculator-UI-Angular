@@ -9,25 +9,14 @@ import { orderBy } from 'lodash';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  constructor(private dataService: DataService) {
-
-  }
+  constructor(private dataService: DataService) { }
 
   title: string = 'Date Calculator';
-  birthdays: IDate[] = [];
-  holidays: IDate[] = [];
-  otherDates: IDate[] = [];
+  dates: IDate[] = [];
 
   ngOnInit(): void {
     this.dataService.getAllDates().subscribe(resp => {
-      const dates: IDate[] = JSON.parse(resp.body);
-      const birthdays = orderBy(dates.filter(date => date.type === 'birthday'), 'name');
-      const holidays = orderBy(dates.filter(date => date.type === 'holiday'), 'name');
-      const otherDates = orderBy(dates.filter(date => date.type === 'other'), 'name');
-
-      this.birthdays = birthdays;
-      this.holidays = holidays;
-      this.otherDates = otherDates;
+      this.dates = JSON.parse(resp.body);
     })
   }
 }
