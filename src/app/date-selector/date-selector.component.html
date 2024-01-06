@@ -2,7 +2,7 @@
   <h3>How many days until...</h3>
   <mat-form-field>
     <mat-label>Select a date</mat-label>
-    <mat-select>
+    <mat-select (selectionChange)="onChange($event)">
       <mat-optgroup label="Birthdays">
         @for (date of birthdays; track date) {
           <mat-option [value]="date.name">{{date.name}}</mat-option>

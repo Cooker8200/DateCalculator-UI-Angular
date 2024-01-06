@@ -1,3 +1,4 @@
+import { CommonModule } from '@angular/common';
 import { Component, Input } from '@angular/core';
 import { IDate } from 'src/interfaces/IDate';
 
@@ -6,6 +7,7 @@ import { IDate } from 'src/interfaces/IDate';
   templateUrl: './date-results.component.html',
   styleUrls: ['./date-results.component.css'],
   standalone: true,
+  imports: [CommonModule]
 })
 export class DateResultsComponent {
   @Input() selectedDate?: IDate;
@@ -19,6 +21,7 @@ export class DateResultsComponent {
   }
 
   calculateDayDifference = (dateObject: IDate): number => {
+    console.log('date object: ', dateObject);
     const parsedDate = new Date(dateObject.date);
     const currentDay = new Date().setHours(0,0,0,0);
     const birthDay = parsedDate.getDate();

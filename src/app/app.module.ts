@@ -20,10 +20,6 @@ import { HttpClientModule } from '@angular/common/http';
     FormsModule,
     HttpClientModule,
     DateSelectorComponent,
-    DateResultsComponent,
-  ],
-  exports: [
-    DateResultsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]
