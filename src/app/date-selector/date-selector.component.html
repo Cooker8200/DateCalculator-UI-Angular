@@ -1,33 +1,24 @@
 <div className="flex">
-  <p>How many days until...</p>
-  <select
-    (change)="onChange($event)"
-    [(ngModel)]="selectedDate"
-  >
-    <optgroup label="Birthdays">
-      <option
-        *ngFor="let date of birthdays"
-        [value]="date.name"
-      >
-        {{date.name}}
-      </option>
-    </optgroup>
-    <optgroup label="Holidays">
-      <option
-        *ngFor="let date of holidays"
-        [value]="date.name"
-      >
-        {{date.name}}
-      </option>
-    </optgroup>
-    <optgroup label="Other Dates">
-      <option
-        *ngFor="let date of otherDates"
-        [value]="date.name"
-      >
-        {{date.name}}
-      </option>
-    </optgroup>
-  </select>
+  <h3>How many days until...</h3>
+  <mat-form-field>
+    <mat-label>Select a date</mat-label>
+    <mat-select>
+      <mat-optgroup label="Birthdays">
+        @for (date of birthdays; track date) {
+          <mat-option [value]="date.name">{{date.name}}</mat-option>
+        }
+      </mat-optgroup>
+      <mat-optgroup label="Holidays">
+        @for (date of holidays; track date) {
+          <mat-option [value]="date.name">{{date.name}}</mat-option>
+        }
+      </mat-optgroup>
+      <mat-optgroup label="Other Dates">
+        @for (date of otherDates; track date) {
+          <mat-option [value]="date.name">{{date.name}}</mat-option>
+        }
+      </mat-optgroup>
+    </mat-select>
+  </mat-form-field>
   <date-results [selectedDate]="selectedDate"></date-results>
 </div>

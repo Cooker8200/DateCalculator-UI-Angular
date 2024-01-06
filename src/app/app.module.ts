@@ -12,8 +12,6 @@ import { HttpClientModule } from '@angular/common/http';
 @NgModule({
   declarations: [
     AppComponent,
-    DateSelectorComponent,
-    DateResultsComponent
   ],
   imports: [
     BrowserModule,
@@ -21,6 +19,11 @@ import { HttpClientModule } from '@angular/common/http';
     BrowserAnimationsModule,
     FormsModule,
     HttpClientModule,
+    DateSelectorComponent,
+    DateResultsComponent,
+  ],
+  exports: [
+    DateResultsComponent,
   ],
   providers: [],
   bootstrap: [AppComponent]

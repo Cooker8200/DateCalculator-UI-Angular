@@ -4,7 +4,8 @@ import { IDate } from 'src/interfaces/IDate';
 @Component({
   selector: 'date-results',
   templateUrl: './date-results.component.html',
-  styleUrls: ['./date-results.component.css']
+  styleUrls: ['./date-results.component.css'],
+  standalone: true,
 })
 export class DateResultsComponent {
   @Input() selectedDate?: IDate;
