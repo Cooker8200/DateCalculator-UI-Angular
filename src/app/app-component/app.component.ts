@@ -1,7 +1,6 @@
 import { Component } from '@angular/core';
 import { DataService } from '../data.service';
 import { IDate } from 'src/interfaces/IDate';
-import { orderBy } from 'lodash';
 
 @Component({
   selector: 'app-root',
