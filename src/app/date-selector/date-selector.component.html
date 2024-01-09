@@ -2,7 +2,7 @@
   <h3>How many days until...</h3>
   <mat-form-field>
     <mat-label>Select a date</mat-label>
-    <mat-select (selectionChange)="onChange($event)">
+    <mat-select (selectionChange)="handleDateSelectionChange($event)">
       <mat-optgroup label="Birthdays">
         @for (date of birthdays; track date) {
           <mat-option [value]="date.name">{{date.name}}</mat-option>
@@ -20,5 +20,6 @@
       </mat-optgroup>
     </mat-select>
   </mat-form-field>
+  <mat-icon class="icon-settings" (click)="handleShowDialogClick()">settings</mat-icon>
   <date-results [selectedDate]="selectedDate"></date-results>
 </div>

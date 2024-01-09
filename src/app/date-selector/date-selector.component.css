@@ -1,3 +1,11 @@
 .flex {
   display: flex;
 }
+
+.icon-settings {
+  padding-left: 12px;
+}
+
+.icon-settings:hover {
+  cursor: pointer;
+}
