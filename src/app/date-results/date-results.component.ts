@@ -21,7 +21,6 @@ export class DateResultsComponent {
   }
 
   calculateDayDifference = (dateObject: IDate): number => {
-    console.log('date object: ', dateObject);
     const parsedDate = new Date(dateObject.date);
     const currentDay = new Date().setHours(0,0,0,0);
     const birthDay = parsedDate.getDate();
