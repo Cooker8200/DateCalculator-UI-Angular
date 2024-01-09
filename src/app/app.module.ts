@@ -10,16 +10,13 @@ import { DateResultsComponent } from './date-results/date-results.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-  ],
+  declarations: [],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    HttpClientModule,
-    DateSelectorComponent,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
