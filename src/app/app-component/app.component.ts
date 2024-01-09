@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../data.service';
+import { DataService } from '../persistence/data.service';
 import { IDate } from 'src/interfaces/IDate';
 import { DateSelectorComponent } from '../date-selector/date-selector.component';
 
