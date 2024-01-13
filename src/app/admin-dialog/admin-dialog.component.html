@@ -1,11 +1,33 @@
 <h2 mat-dialog-title>
   Manage Dates
 </h2>
-<div mat-dialog-content>
+<div mat-dialog-content class="admin-dialog">
   <mat-tab-group (selectedTabChange)="setDateAction($event)">
-    <mat-tab label="Add Date"></mat-tab>
+    <mat-tab label="Add Date">
+      <div>
+        <mat-form-field class="fullWidth">
+          <mat-label>Choose a date</mat-label>
+          <input matInput [matDatepicker]="picker" (dateChange)="handleDateTypeSelectionChange($event)">
+          <mat-hint>MM/DD/YYYY</mat-hint>
+          <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+        <mat-form-field class="fullWidth">
+          <mat-label>Date Type</mat-label>
+          <mat-select [value]="dateTypeToAdd" (selectionChange)="handleDateTypeSelectionChange($event)">
+            <mat-option value="birthday">Birthday</mat-option>
+            <mat-option value="holiday">Holiday</mat-option>
+            <mat-option value="other">Other</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="fullWidth">
+          <mat-label>Date Name</mat-label>
+          <input matInput type="text" [value]="dateNameToAdd" (change)="handleDateNameChange($event)"/>
+        </mat-form-field>
+      </div>
+    </mat-tab>
     <mat-tab label="Remove Date Date">
-      <mat-form-field class="admin-remove-date">
+      <mat-form-field class="fullWidth">
         <mat-label>Select a date to remove</mat-label>
         <mat-select (selectionChange)="handleRemoveDateSelection($event)">
           <mat-optgroup label="Birthdays">

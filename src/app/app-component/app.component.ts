@@ -24,6 +24,7 @@ export class AppComponent {
     this.dataService.getAllDates().subscribe(resp => {
       this.dates = JSON.parse(resp.body);
     })
+    this.openDialog();
   }
 
   openDialog(): void {
