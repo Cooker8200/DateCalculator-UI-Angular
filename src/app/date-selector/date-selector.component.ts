@@ -7,14 +7,13 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { DateResultsComponent } from '../date-results/date-results.component';
 import { CommonModule } from '@angular/common';
-import {MatIconModule} from '@angular/material/icon';
 
 @Component({
   selector: 'date-selector',
   templateUrl: './date-selector.component.html',
   styleUrls: ['./date-selector.component.css'],
   standalone: true,
-  imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatFormFieldModule, DateResultsComponent, CommonModule, MatIconModule]
+  imports: [FormsModule, ReactiveFormsModule, MatInputModule, MatSelectModule, MatFormFieldModule, DateResultsComponent, CommonModule]
 })
 export class DateSelectorComponent {
   @Input() dates: IDate[] = [];
@@ -36,9 +35,5 @@ export class DateSelectorComponent {
   handleDateSelectionChange(event: any): void {
     const name = event.value;
     this.selectedDate = [...this.birthdays, ...this.holidays, ...this.otherDates].find(date => date.name === name) as IDate;
-  }
-
-  handleShowDialogClick(): void {
-    console.log('set global state here')
   }
 }

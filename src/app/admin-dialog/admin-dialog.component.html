@@ -1,3 +1,12 @@
-<div *ngIf="showDialog===true">
-  <p>admin-dialog works!</p>
+<h2 mat-dialog-title>
+  Manage Dates
+</h2>
+<div mat-dialog-content>
+  content goes here
+</div>
+<div mat-dialog-actions>
+  <div>
+    <button mat-flat-button (click)="onClose()">Cancel</button>
+    <button mat-raised-button color="primary" (click)="onSave()">Save</button>
+  </div>
 </div>

@@ -7,3 +7,13 @@
   font-size:xx-large;
   padding-top: 16px;
 }
+
+.icon-settings {
+  position: absolute;
+  top: 24px;
+  right: 24px;
+}
+
+.icon-settings:hover {
+  cursor: pointer;
+}
