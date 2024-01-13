@@ -42,10 +42,17 @@ export class AdminDialogComponent {
   holidays: IDate[] = [];
   otherDates: IDate[] = [];
 
-  setDateAction(): void {
-    // this.dateAction = action;
-    // console.log(action);
-    console.log('hit');
+  setDateAction(event: any): void {
+    switch (event.index) {
+      case 0:
+        this.dateAction = 'add';
+        break;
+      case 1:
+        this.dateAction = 'remove';
+        break;
+      default:
+        console.error('something broke');
+    }
   };
 
   handleRemoveDateSelection(event: any): void {

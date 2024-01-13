@@ -2,7 +2,7 @@
   Manage Dates
 </h2>
 <div mat-dialog-content>
-  <mat-tab-group>
+  <mat-tab-group (selectedTabChange)="setDateAction($event)">
     <mat-tab label="Add Date"></mat-tab>
     <mat-tab label="Remove Date Date">
       <mat-form-field class="admin-remove-date">
