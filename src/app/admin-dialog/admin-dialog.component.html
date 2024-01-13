@@ -2,7 +2,31 @@
   Manage Dates
 </h2>
 <div mat-dialog-content>
-  content goes here
+  <mat-tab-group>
+    <mat-tab label="Add Date"></mat-tab>
+    <mat-tab label="Remove Date Date">
+      <mat-form-field class="admin-remove-date">
+        <mat-label>Select a date to remove</mat-label>
+        <mat-select (selectionChange)="handleRemoveDateSelection($event)">
+          <mat-optgroup label="Birthdays">
+            @for (date of birthdays; track date) {
+              <mat-option [value]="date.name">{{date.name}}</mat-option>
+            }
+          </mat-optgroup>
+          <mat-optgroup label="Holidays">
+            @for (date of holidays; track date) {
+              <mat-option [value]="date.name">{{date.name}}</mat-option>
+            }
+          </mat-optgroup>
+          <mat-optgroup label="Other Dates">
+            @for (date of otherDates; track date) {
+              <mat-option [value]="date.name">{{date.name}}</mat-option>
+            }
+          </mat-optgroup>
+        </mat-select>
+      </mat-form-field>      
+    </mat-tab>
+  </mat-tab-group>
 </div>
 <div mat-dialog-actions>
   <div>

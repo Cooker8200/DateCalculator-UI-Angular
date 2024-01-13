@@ -3,7 +3,7 @@ import { DataService } from '../persistence/data.service';
 import { IDate } from 'src/interfaces/IDate';
 import { DateSelectorComponent } from '../date-selector/date-selector.component';
 import { AdminDialogComponent } from '../admin-dialog/admin-dialog.component';
-import {MatIconModule} from '@angular/material/icon';
+import { MatIconModule } from '@angular/material/icon';
 import { MatDialog } from '@angular/material/dialog';
 
 
