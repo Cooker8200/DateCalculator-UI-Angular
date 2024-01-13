@@ -18,6 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { orderBy } from 'lodash';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_NATIVE_DATE_FORMATS, MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
+import { DataService } from '../persistence/data.service';
 
 @Component({
   selector: 'admin-dialog',
@@ -46,6 +47,7 @@ export class AdminDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { dates: IDate[] },
     public dialogRef: MatDialogRef<AdminDialogComponent>,
+    private dataService: DataService,
   ) {
     this.birthdays = orderBy(data.dates.filter(date => date.type === 'birthday'), 'name');
     this.holidays = orderBy(data.dates.filter(date => date.type === 'holiday'), 'name');
@@ -87,7 +89,7 @@ export class AdminDialogComponent {
   };
 
   handleRemoveDateSelection(event: any): void {
-    const date = event.value;
+    this.dateToRemove = event.value;
   };
 
   onClose(): void {
@@ -95,6 +97,21 @@ export class AdminDialogComponent {
   };
 
   onSave(): void {
-    console.log('saving data');
+    switch (this.dateAction) {
+      case 'add':
+        console.log('adding date');
+        const composedNewDate = {
+          date: this.dateToAdd,
+          name: this.dateNameToAdd,
+          type: this.dateTypeToAdd,
+        }
+        this.dataService.putNewDate(composedNewDate).subscribe(resp => console.log(resp))
+        break;
+      case 'remove':
+        this.dataService.deleteDate(this.dateToRemove).subscribe(resp => console.log(resp))
+        break;
+      default:
+        console.error('attempting invalid operation');
+    }
   };
 }
