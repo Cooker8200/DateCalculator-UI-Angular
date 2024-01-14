@@ -1,4 +1,12 @@
-# AngularTutorial
+# Date Calculator
+
+About Date Calculator
+
+Date Calculator is an application build with interchangable parts in mind. The front and backend will always remain ideally independent and interchangable. This allows the simple app to become a learning playground with new technologies.
+
+Date Calculator React UI
+
+React UI for the date calculator. The UI allows a calculated number of days from now until the target date. Admin ability to add and remove dates. Styled with material ui.
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.1.6.
 
