@@ -22,7 +22,7 @@ export class AppComponent {
 
   ngOnInit(): void {
     this.dataService.getAllDates().subscribe(resp => {
-      this.dates = JSON.parse(resp.body);
+      this.dates = resp.body;
     })
   }
 
