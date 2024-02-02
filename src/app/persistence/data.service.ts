@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { localGoAwsUrl, localGoMongoUrl } from 'src/constants/Urls';
+import { localGoAwsUrl } from 'src/constants/Urls';
 import { IDate } from 'src/interfaces/IDate';
 
 @Injectable({
@@ -19,13 +19,13 @@ export class DataService {
   };
 
   putNewDate(newDate: IDate): Observable<any> {
-    return this.http.put(localGoMongoUrl, JSON.stringify(newDate));
+    return this.http.put(localGoAwsUrl, JSON.stringify(newDate));
   };
 
   deleteDate(dateName: string): Observable<any> {
     const payload = {
       name: dateName,
     };
-    return this.http.post(localGoMongoUrl, JSON.stringify(payload));
+    return this.http.post(localGoAwsUrl, JSON.stringify(payload));
   }
 }
