@@ -26,6 +26,6 @@ export class DataService {
     const payload = {
       name: dateName,
     };
-    return this.http.post(localGoAwsUrl, JSON.stringify(payload));
+    return this.http.delete(localGoAwsUrl, { body: JSON.stringify(payload) });
   }
 }
