@@ -1,8 +1,8 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { localGoAwsUrl } from 'src/constants/Urls';
 import { IDate } from 'src/interfaces/IDate';
+import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
@@ -15,17 +15,17 @@ export class DataService {
   dates: any[] = [];
 
   getAllDates(): Observable<any> {
-    return this.http.get(localGoAwsUrl, { headers: {"Access-Control-Allow-Origin": "http://localhost:3001/"} });
+    return this.http.get(environment.datesUrl);
   };
 
   putNewDate(newDate: IDate): Observable<any> {
-    return this.http.put(localGoAwsUrl, JSON.stringify(newDate));
+    return this.http.put(environment.datesUrl, JSON.stringify(newDate));
   };
 
   deleteDate(dateName: string): Observable<any> {
     const payload = {
       name: dateName,
     };
-    return this.http.delete(localGoAwsUrl, { body: JSON.stringify(payload) });
+    return this.http.delete(environment.datesUrl, { body: JSON.stringify(payload) });
   }
 }
