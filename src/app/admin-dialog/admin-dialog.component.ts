@@ -76,10 +76,6 @@ export class AdminDialogComponent {
     }
   };
 
-  handleDateToAddChange(event: any): void {
-    console.log('event: ', event);
-  }
-
   handleDateTypeSelectionChange(event: any): void {
     this.dateTypeToAdd = event.value;
   };
@@ -99,16 +95,17 @@ export class AdminDialogComponent {
   onSave(): void {
     switch (this.dateAction) {
       case 'add':
-        console.log('adding date');
         const composedNewDate = {
           date: this.dateToAdd,
           name: this.dateNameToAdd,
           type: this.dateTypeToAdd,
         }
-        this.dataService.putNewDate(composedNewDate).subscribe(resp => console.log(resp))
+        this.dataService.putNewDate(composedNewDate).subscribe();
+        this.onClose();
         break;
       case 'remove':
-        this.dataService.deleteDate(this.dateToRemove).subscribe(resp => console.log(resp))
+        this.dataService.deleteDate(this.dateToRemove).subscribe();
+        this.onClose();
         break;
       default:
         console.error('attempting invalid operation');

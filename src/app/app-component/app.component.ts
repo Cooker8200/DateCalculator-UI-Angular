@@ -27,10 +27,16 @@ export class AppComponent {
   }
 
   openDialog(): void {
-    this.dialog.open(AdminDialogComponent, {
+    const dialogRef = this.dialog.open(AdminDialogComponent, {
       data: {
         dates: this.dates,
       }
     })
+
+    dialogRef.afterClosed().subscribe(() => {
+      this.dataService.getAllDates().subscribe(resp => {
+        this.dates = JSON.parse((resp.body))
+      })
+    });
   };
 }
