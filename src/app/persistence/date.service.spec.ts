@@ -1,10 +1,10 @@
 import { TestBed } from '@angular/core/testing';
-import { DataService } from './data.service';
+import { DateService } from './date.service';
 import { HttpClient } from '@angular/common/http';
 import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('DataService', () => {
-  let dateService: DataService;
+describe('DatdService', () => {
+  let dateService: DateService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
   describe('getAllDates', () => {
@@ -12,11 +12,11 @@ describe('DataService', () => {
       beforeEach(() => {
         TestBed.configureTestingModule({
           providers: [
-            DataService,
+            DateService,
           ],
           imports: [HttpClientTestingModule]
         });
-        dateService = TestBed.inject(DataService);
+        dateService = TestBed.inject(DateService);
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
       });
       it('should return an array of dates', (done: DoneFn) => {
@@ -48,7 +48,7 @@ describe('DataService', () => {
     describe('good api call', () => {
       beforeEach(() => {
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['put'])
-        dateService = TestBed.inject(DataService);
+        dateService = TestBed.inject(DateService);
       });
       it('should return the new date', (done: DoneFn) => {
         const newDate = {
@@ -71,7 +71,7 @@ describe('DataService', () => {
     describe('good api call', () => {
       beforeEach(() => {
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['delete'])
-        dateService = TestBed.inject(DataService);
+        dateService = TestBed.inject(DateService);
       });
       it('should return a good response', (done: DoneFn) => {
         const expectedResponse = 'date removed';

@@ -18,7 +18,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { orderBy } from 'lodash';
 import { DateAdapter, MAT_DATE_FORMATS, MAT_NATIVE_DATE_FORMATS, MatNativeDateModule, NativeDateAdapter } from '@angular/material/core';
 import { MatDatepickerModule } from '@angular/material/datepicker';
-import { DataService } from '../persistence/data.service';
+import { DateService } from '../persistence/date.service';
 
 @Component({
   selector: 'admin-dialog',
@@ -47,7 +47,7 @@ export class AdminDialogComponent {
   constructor(
     @Inject(MAT_DIALOG_DATA) public data: { dates: IDate[] },
     public dialogRef: MatDialogRef<AdminDialogComponent>,
-    private dataService: DataService,
+    private DateService: DateService,
   ) {
     this.birthdays = orderBy(data.dates.filter(date => date.type === 'birthday'), 'name');
     this.holidays = orderBy(data.dates.filter(date => date.type === 'holiday'), 'name');
@@ -100,11 +100,11 @@ export class AdminDialogComponent {
           name: this.dateNameToAdd,
           type: this.dateTypeToAdd,
         }
-        this.dataService.putNewDate(composedNewDate).subscribe();
+        this.DateService.putNewDate(composedNewDate).subscribe();
         this.onClose();
         break;
       case 'remove':
-        this.dataService.deleteDate(this.dateToRemove).subscribe();
+        this.DateService.deleteDate(this.dateToRemove).subscribe();
         this.onClose();
         break;
       default:

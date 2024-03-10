@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { DataService } from '../persistence/data.service';
+import { DateService } from '../persistence/date.service';
 import { IDate } from 'src/interfaces/IDate';
 import { DateSelectorComponent } from '../date-selector/date-selector.component';
 import { AdminDialogComponent } from '../admin-dialog/admin-dialog.component';
@@ -15,13 +15,13 @@ import { MatDialog } from '@angular/material/dialog';
   imports: [DateSelectorComponent, AdminDialogComponent, MatIconModule]
 })
 export class AppComponent {
-  constructor(private dataService: DataService, public dialog: MatDialog) { }
+  constructor(private dateService: DateService, public dialog: MatDialog) { }
 
   title: string = 'Date Calculator';
   dates: IDate[] = [];
 
   ngOnInit(): void {
-    this.dataService.getAllDates().subscribe(resp => {
+    this.dateService.getAllDates().subscribe(resp => {
       this.dates = JSON.parse(resp.body);
     })
   }
@@ -34,7 +34,7 @@ export class AppComponent {
     })
 
     dialogRef.afterClosed().subscribe(() => {
-      this.dataService.getAllDates().subscribe(resp => {
+      this.dateService.getAllDates().subscribe(resp => {
         this.dates = JSON.parse((resp.body))
       })
     });
