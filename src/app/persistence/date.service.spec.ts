@@ -1,22 +1,15 @@
 import { TestBed } from '@angular/core/testing';
 import { DateService } from './date.service';
 import { HttpClient } from '@angular/common/http';
-import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 
-describe('DatdService', () => {
+describe('DateService', () => {
   let dateService: DateService;
   let httpClientSpy: jasmine.SpyObj<HttpClient>;
 
   describe('getAllDates', () => {
     describe('good api call', () => {
       beforeEach(() => {
-        TestBed.configureTestingModule({
-          providers: [
-            DateService,
-          ],
-          imports: [HttpClientTestingModule]
-        });
-        dateService = TestBed.inject(DateService);
+        dateService = new DateService(httpClientSpy);
         httpClientSpy = jasmine.createSpyObj('HttpClient', ['get'])
       });
       it('should return an array of dates', (done: DoneFn) => {
